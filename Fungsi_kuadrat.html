@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Fungsi</title>
+  <title>Fungsi_kuadrat</title>
 
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,6 +16,142 @@
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+  <script type="text/javascript">
+            function hitungFungsi(){
+                var a=document.getElementById('a').value;
+                var b=document.getElementById('b').value;
+                var c=document.getElementById('c').value;
+                var x=document.getElementById('x').value;
+
+                var text="";
+                var text1="";
+                var text2="";
+                var text3="";
+                var i;
+                var s;
+                var x1;
+                var x2;
+
+                var hasilFungsi= (parseInt(a)*(x**2))+(parseInt(b)*x)+parseInt(c);
+
+
+                var d=(parseInt(b)**2)-4* parseInt(a)* parseInt(c);
+
+
+                var xx=parseInt(a)*parseInt(c);
+
+                for (var i = 1; i < 10; i++) {
+                    for(var s = xx; s >  i; s--){
+                        if (i*s==xx) {
+                            if (i+s==b) {
+                                text = i + " " + "x" + " " + s + " " + "=" + " " + xx ;
+                                text1 = i + " " + "+" + " " + s + " " + "=" + " " + b ;
+                                text2 = "(x + "+ i + ")";
+                                text3 = "(x + "+ s + ")";
+                                x1=-i;
+                                x2=-s;
+                            }
+                        }
+                        if (-i*s==xx) {
+                            if (-i+s==b) {
+                                text = "-" + i + " " + "x" + " " + s + " " + "=" + " " + xx ;
+                                text1 = "-" + i + " " + "+" + " " + s + " " + "=" + " " + b ;
+                                text2 = "(x - "+ i + ")";
+                                text3 = "(x + "+ s + ")";
+                                x1=i;
+                                x2=-s;
+                            }
+                        }
+                        if (i*-s==xx) {
+                            if (i+-s==b) {
+                                text = i + " " + "x" + " " + "-" + s + " " + "=" + " " + xx ;
+                                text1 = i + " " + "+" + " " + "-" + s + " " + "=" + " " + b  ;
+                                text2 = "(x + "+ i + ")";
+                                text3 = "(x - "+ s + ")";
+                                x1=-i;
+                                x2=s;
+                            }
+                        }
+                        if (-i*-s==xx) {
+                            if (-i+-s==b) {
+                                text = "-" + i + " " + "x"+ " " + "-" + s + " " + "=" + " " + xx ;
+                                text1 = "-" + i + " " + "+"+ " " + "-" + s + " " + "=" + " " + b ;
+                                text2 = "(x - "+ i + ")";
+                                text3 = "(x - "+ s + ")";
+                                x1=i;
+                                x2=s;
+                            }
+                        }                        
+                    }
+                }
+
+
+
+                var tipotY=(parseInt(x)**2)+(parseInt(b)*parseInt(x))+parseInt(c);
+
+                var xp= -parseInt(b)/(2*parseInt(a));
+                var yp= -parseInt(d)/(4*parseInt(a));
+
+                // hasil
+                document.getElementById('hasilFungsi').innerHTML=hasilFungsi;
+                document.getElementById('d').innerHTML=d;
+                document.getElementById("demo").innerHTML=text;
+                document.getElementById("demo1").innerHTML=text1;
+                document.getElementById("x1").innerHTML=x1;
+                document.getElementById("x2").innerHTML=x2;
+                document.getElementById('tipotY').innerHTML=tipotY;
+                document.getElementById('xp').innerHTML=xp;
+                document.getElementById('yp').innerHTML=yp;
+                document.getElementById('xp1').innerHTML=xp;
+                document.getElementById('yp1').innerHTML=yp;
+
+                //cara pengerjaan-----------------------------------------------------------------
+                // intercept-y
+                document.getElementById('ab').innerHTML=a;
+                document.getElementById('xb').innerHTML=x;
+                document.getElementById('xbb').innerHTML=x;
+                document.getElementById('xbbb').innerHTML=x;
+                document.getElementById('bb').innerHTML=b;
+                document.getElementById('cb').innerHTML=c;
+                document.getElementById('hasilFungsib').innerHTML=hasilFungsi;
+
+                //hasil d =
+                document.getElementById('bd').innerHTML=b;
+                document.getElementById('ad').innerHTML=a;
+                document.getElementById('cd').innerHTML=c;
+                document.getElementById('dd').innerHTML=d;
+
+                // tipot x
+                document.getElementById("jumlah").innerHTML=b;
+                document.getElementById("kali").innerHTML=c;
+                document.getElementById("demo2").innerHTML=text2;
+                document.getElementById("demo3").innerHTML=text3;
+                document.getElementById("tx1").innerHTML=x1;
+                document.getElementById("tx2").innerHTML=x2;
+
+                // tipot y
+                document.getElementById('ay').innerHTML=a;
+                document.getElementById('xy').innerHTML=x;
+                document.getElementById('xyy').innerHTML=x;
+                document.getElementById('by').innerHTML=b;
+                document.getElementById('cy').innerHTML=c;
+                document.getElementById('yy').innerHTML=tipotY;
+                document.getElementById('yyy').innerHTML=tipotY;
+
+                // tipunx
+                document.getElementById('xpb').innerHTML=b;
+                document.getElementById('xpa').innerHTML=a;
+                document.getElementById('ypd').innerHTML=d;
+                document.getElementById('ypa').innerHTML=a;
+                document.getElementById('xpp').innerHTML=xp;
+                document.getElementById('ypp').innerHTML=yp;
+                document.getElementById('xppp').innerHTML=xp;
+                document.getElementById('yppp').innerHTML=yp;
+
+            }
+        </script>
+
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -94,69 +230,80 @@
                   <div class="form-group row">
                     <label for="inputEmail3" class="col-sm-1 col-form-label">a</label>
                     <div class="col-sm-11">
-                      <input type="number" class="form-control" id="a" placeholder="">
+                      <input type="text" class="form-control" id="a" placeholder="">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputPassword3" class="col-sm-1 col-form-label">b</label>
                     <div class="col-sm-11">
-                      <input type="number" class="form-control" id="b" placeholder="">
+                      <input type="text" class="form-control" id="b" placeholder="">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputPassword4" class="col-sm-1 col-form-label">c</label>
                     <div class="col-sm-11">
-                      <input type="number" class="form-control" id="c" placeholder="">
+                      <input type="text" class="form-control" id="c" placeholder="">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="inputPassword5" class="col-sm-1 col-form-label">x</label>
                     <div class="col-sm-11">
-                      <input type="number" class="form-control" id="x" placeholder="">
+                      <input type="text" class="form-control" id="x" placeholder="">
                     </div>
                   </div>
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info" onclick="fungsi(e) ">Hitung</button>
-                  <button type="submit" class="btn btn-default float-right" >Reset</button>
+                  <button type="button" class="btn btn-info" onclick="hitungFungsi()">Hitung</button>
                 </div>
                 <!-- /.card-footer -->
 
+                  
+                </div>
+              </form>
+
                 <div class="card-body">
                   <div class="form-group row">
-                    <label for="fungsiKuadratUmum" class="col-sm-6 col-form-label">Fungsi Kuadrat Umum</label>
+                    <label for="fungsiKuadratUmum" class="col-sm-6 col-form-label">intercept-y</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" id="hasilFungsi" placeholder="" disabled="">
+                      <label id="hasilFungsi" ></label>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="hasilD" class="col-sm-6 col-form-label">Hasil d</label>
                     <div class="col-sm-6">
-                      <input type="number" class="form-control" id="d" placeholder="" disabled="">
+                      <label id="d" ></label>
                     </div>
+                  </div>
+                  <div class="form-group row">
+                    <label for="hasilTipotY" class="col-sm-6 col-form-label">Hasil Tipot X</label>
+                    <div class="col-sm-6">
+                      x1= (<label id="x1"></label>,0), x2= (<label id="x2"></label>,0)                    </div>
                   </div>
                   <div class="form-group row">
                     <label for="hasilTipotY" class="col-sm-6 col-form-label">Hasil Tipot Y</label>
                     <div class="col-sm-6">
-                      <input type="number" class="form-control" id="tipotY" placeholder="" disabled="">
+                      (0,<label id="tipotY"></label>)
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="hasilXp" class="col-sm-6 col-form-label">Hasil XP</label>
                     <div class="col-sm-6">
-                      <input type="number" class="form-control" id="xp" placeholder="" disabled="">
+                      <label id="xp"></label>
                     </div>
                   </div>
                   <div class="form-group row">
                     <label for="HasilYp" class="col-sm-6 col-form-label">Hasil YP</label>
                     <div class="col-sm-6">
-                      <input type="number" class="form-control" id="yp" placeholder="" disabled="">
+                      <label id="yp"></label>
                     </div>
                   </div>
-                  
-                </div>
-              </form>
+                  <div class="form-group row">
+                    <label for="HasilYp" class="col-sm-6 col-form-label">Titik puncak</label>
+                    <div class="col-sm-6">
+                     (<label id="xp1"></label>,<label id="yp1"></label>)
+                    </div>
+                  </div>
             </div>
             <!-- /.card -->
 
@@ -173,10 +320,115 @@
               </div>
               <!-- /.card-header -->
               <!-- form start -->
-              halo ini penyelesaian
+
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h3 class="card-title">intercept-y</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    f(x)=ax²+bx+c <br>
+                    f(<label id="xbbb"></label>)=<label id="ab"></label>(<label id="xbb"></label>)²+((<label id="bb"></label>)(<label id="xb"></label>))+(<label id="cb"></label>)<br>
+                    =<label id="hasilFungsib"></label><br>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h3 class="card-title">Hasil D</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    d=b²-4.a.c <br>
+                    d=(<label id="bd"></label>)²-4 x (<label id="ad"></label>)x(<label id="cd"></label>)<br>
+                    d=<label id="dd"></label><br>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h3 class="card-title">Titik potong sumbu X</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    carilah bilangan yang jika di jumlahkan akan menghasilkan <label id="jumlah"></label> dan jika di kalikan menghasilkan <label id="kali"></label><br>
+                    <label id="demo"></label><br>
+                    <label id="demo1"></label><br>
+                    <label id="demo2"></label> = (<label id="tx1"></label>,0)<br>
+                    <label id="demo3"></label> = (<label id="tx2"></label>,0)<br>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h3 class="card-title">Titik potong sumbu Y</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    x=0 <br>
+                    y=<label id="ay"></label>(<label id="xy"></label>)²+((<label id="by"></label>)(<label id="xyy"></label>))+(<label id="cy"></label>)<br>  
+                    y=<label id="yy"></label>=(0,<label id="yyy"></label>)<br>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h3 class="card-title">Titik puncak</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    xp= -b/2a = -(<label id="xpb"></label>)/2(<label id="xpa"></label>)=<label id="xpp"></label><br>
+                    yp= -d/4a = -(<label id="ypd"></label>)/4(<label id="ypa"></label>)=<label id="ypp"></label><br>
+                    titik puncak = (<label id="xppp"></label>,<label id="yppp"></label>)
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="card card-secondary">
+                <div class="card-header">
+                  <h3 class="card-title">Grafik fungsi kuadrat</h3>
+                  <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="collapse" data-toggle="tooltip" title="Collapse">
+                      <i class="fas fa-minus"></i></button>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="form-group">
+                    grafiknya belum
+                  </div>
+                </div>
+              </div>
+
             </div>
 
-            
+            <div class="col-md-6">
+
+        </div>
             <!-- /.card -->
 
             
@@ -234,35 +486,7 @@
   </footer>
 
   
-  <script type="text/javascript">
-
-    function fungsi(e){
-      e.preventDefault();
-
-        var a=document.getElementById('a').value;
-        var b=document.getElementById('b').value;
-        var c=document.getElementById('c').value;
-        var x=document.getElementById('x').value;
-
-        var hasilFungsi= (parseInt(a)*(x**2))+(parseInt(b)*x)+parseInt(c);
-
-        var d=(parseInt(b)**2)-4* parseInt(a)* parseInt(c);
-
-        var x1=parseInt(a)*parseInt(c);
-
-        var tipotY=(parseInt(x)**2)+(parseInt(b)*parseInt(x))+parseInt(c);
-
-        var xp= -parseInt(b)/(2*parseInt(a));
-        var yp= -parseInt(d)/(4*parseInt(a));
-
-        document.getElementById('hasilFungsi').value=hasilFungsi;
-        document.getElementById('d').value=d;
-        document.getElementById('tipotY').value=tipotY;
-        document.getElementById('xp').value=xp;
-        document.getElementById('yp').value=yp;
-
-    }
-</script>
+  
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
