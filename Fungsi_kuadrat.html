@@ -118,7 +118,7 @@
                 </div>
                 <!-- /.card-body -->
                 <div class="card-footer">
-                  <button type="submit" class="btn btn-info" onclick="fungsi()">Hitung</button>
+                  <button type="submit" class="btn btn-info" onclick="fungsi(e) ">Hitung</button>
                   <button type="submit" class="btn btn-default float-right" >Reset</button>
                 </div>
                 <!-- /.card-footer -->
@@ -235,7 +235,10 @@
 
   
   <script type="text/javascript">
-    function fungsi(){
+
+    function fungsi(e){
+      e.preventDefault();
+
         var a=document.getElementById('a').value;
         var b=document.getElementById('b').value;
         var c=document.getElementById('c').value;
