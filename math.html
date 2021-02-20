@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Laravel</title>
+
+        <!-- Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+
+        <!-- Styles -->
+        
+
+        <script type="text/javascript">
+            function fungsi(){
+                var a=document.getElementById('a').value;
+                var b=document.getElementById('b').value;
+                var c=document.getElementById('c').value;
+                var x=document.getElementById('x').value;
+
+                var hasilFungsi= (parseInt(a)*(x**2))+(parseInt(b)*x)+parseInt(c);
+
+                var d=(parseInt(b)**2)-4* parseInt(a)* parseInt(c);
+
+                var x1=parseInt(a)*parseInt(c);
+
+                var tipotY=(parseInt(x)**2)+(parseInt(b)*parseInt(x))+parseInt(c);
+
+                var xp= -parseInt(b)/(2*parseInt(a));
+                var yp= -parseInt(d)/(4*parseInt(a));
+
+                document.getElementById('hasilFungsi').value=hasilFungsi;
+                document.getElementById('d').value=d;
+                document.getElementById('tipotY').value=tipotY;
+                document.getElementById('xp').value=xp;
+                document.getElementById('yp').value=yp;
+
+            }
+        </script>
+    </head>
+    <body>
+        <div class="flex-center position-ref full-height">
+            <div class="content">
+                <div class="title m-b-md">
+                    Laravel
+                </div>
+
+                <div class="input">
+                    fungsi kuadrat dari bentuk f(x)=ax²+bx+c <br>
+                    <label>a=</label><input type="text" id="a" name="a">
+                    <label>b=</label><input type="text" id="b" name="b">
+                    <label>c=</label><input type="text" id="c" name="c">
+                    <label>x=</label><input type="text" id="x" name="x">
+                    <button type="submit" onclick="fungsi()">hitung</button>
+                </div>
+                <div class="hasil">
+                    fungsi kuadrat umum = <input type="text" name="hasilFungsi" id="hasilFungsi"><br>
+                    hasil d = <input type="text" name="d" id="d"><br>
+                    hasil tipotY = <input type="text" name="tipotY" id="tipotY"><br>
+                    hasil xp = <input type="text" name="xp" id="xp"><br>
+                    hasil yp = <input type="text" name="yp" id="yp"><br>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
